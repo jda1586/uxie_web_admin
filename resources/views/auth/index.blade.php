@@ -49,7 +49,8 @@
 
 <div id="login-page" class="row">
     <div class="col s12 z-depth-4 card-panel">
-        <form class="login-form">
+        <form class="login-form" method="POST" action="{!! route('auth.login') !!}">
+            {{ csrf_field() }}
             <div class="row">
                 <div class="input-field col s12 center">
                     <img src="{!! asset('images/uxie/uxie_icon.png') !!}" alt=""
@@ -60,26 +61,26 @@
             <div class="row margin">
                 <div class="input-field col s12">
                     <i class="mdi-social-person-outline prefix"></i>
-                    <input id="username" type="text">
+                    <input id="username" type="text" name="email">
                     <label for="username" class="center-align">Email</label>
                 </div>
             </div>
             <div class="row margin">
                 <div class="input-field col s12">
                     <i class="mdi-action-lock-outline prefix"></i>
-                    <input id="password" type="password">
+                    <input id="password" type="password" name="password">
                     <label for="password">Contraseña</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12 m12 l12  login-text">
-                    <input type="checkbox" id="remember-me"/>
+                    <input type="checkbox" id="remember-me" name="remember"/>
                     <label for="remember-me">Recordarme</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <button type="button" class="btn waves-effect waves-light col s12">Ingresar</button>
+                    <button type="submit" class="btn waves-effect waves-light col s12">Ingresar</button>
                 </div>
             </div>
             <div class="row">

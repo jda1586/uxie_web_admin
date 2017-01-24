@@ -1,5 +1,7 @@
 @extends('layout._main')
 
+@section('title','Comercios')
+
 @section('breadcrumb')
     <div id="breadcrumbs-wrapper">
         <!-- Search for small screen -->

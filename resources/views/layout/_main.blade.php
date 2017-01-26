@@ -195,7 +195,9 @@
                     </a>
                 </li>
 
-                <li class="li-hover"><div class="divider"></div></li>
+                <li class="li-hover">
+                    <div class="divider"></div>
+                </li>
 
                 <li class="bold">
                     <a href="#" class="waves-effect waves-cyan">
@@ -229,7 +231,9 @@
                     </ul>
                 </li>
 
-                <li class="li-hover"><div class="divider"></div></li>
+                <li class="li-hover">
+                    <div class="divider"></div>
+                </li>
                 <li class="li-hover"><p class="ultra-small margin more-text">Administración</p></li>
 
                 <li class="bold">
@@ -462,8 +466,8 @@
 
 <!-- Floating Action Button -->
 <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
-    <a class="btn-floating btn-large">
-        <i class="mdi-action-stars"></i>
+    <a class="btn-floating btn-large blue">
+        <i class="mdi-content-add-circle"></i>
     </a>
     <ul>
         <li>
@@ -503,8 +507,8 @@ Scripts
     <script type="text/javascript" src="{!! asset('js/plugins/jquery-1.11.2.min.js') !!}"></script>
     <!--materialize js-->
     <script type="text/javascript" src="{!! asset('js/materialize.min.js') !!}"></script>
-    <!--prism
-    <script type="text/javascript" src="js/prism/prism.js"></script>-->
+    <!--prism -->
+    <script type="text/javascript" src="{!! asset('js/prism/prism.js') !!}"></script>
     <!--scrollbar-->
     <script type="text/javascript"
             src="{!! asset('js/plugins/perfect-scrollbar/perfect-scrollbar.min.js') !!}"></script>

@@ -1,6 +1,6 @@
 // Bar chart ( New Clients)
 
-    $("#clients-bar").sparkline([70, 80, 65, 78, 58, 80, 78, 80, 70, 50, 75, 65, 80, 70, 65, 90, 65, 80, 70, 65, 90], {
+    /*$("#clients-bar").sparkline([70, 80, 65, 78, 58, 80, 78, 80, 70, 50, 75, 65, 80, 70, 65, 90, 65, 80, 70, 65, 90], {
         type: 'bar',
         height: '25',
         barWidth: 7,
@@ -8,7 +8,7 @@
         barColor: '#C7FCC9',
         negBarColor: '#81d4fa',
         zeroColor: '#81d4fa',
-    });
+    });*/
 
 //clientsBar.setOptions({chartArea: {width: 100}});
 

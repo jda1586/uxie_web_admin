@@ -467,20 +467,22 @@
 <!-- Floating Action Button -->
 <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
     <a class="btn-floating btn-large blue">
-        <i class="mdi-content-add-circle"></i>
+        <i class="mdi-editor-format-list-bulleted"></i>
     </a>
     <ul>
         <li>
-            <a href="#" class="btn-floating red">
+            <a href="#" class="tooltipped btn-floating red" data-position="left" data-delay="20"
+               data-tooltip="Ayuda">
                 <i class="large mdi-communication-live-help"></i>
             </a>
         </li>
         <li>
-            <a href="#" class="btn-floating yellow darken-1">
-                <i class="large mdi-device-now-widgets"></i>
+            <a href="{!! route('shops.create') !!}" class="tooltipped btn-floating green" data-position="left" data-delay="20"
+               data-tooltip="Nuevo Comercio">
+                <i class="large mdi-action-store"></i>
             </a>
         </li>
-        <li>
+        {{--<li>
             <a href="#" class="btn-floating green">
                 <i class="large mdi-editor-insert-invitation"></i>
             </a>
@@ -494,7 +496,7 @@
             <a href="#" class="btn-floating blue">
                 <i class="large mdi-communication-email"></i>
             </a>
-        </li>
+        </li>--}}
     </ul>
 </div>
 <!-- Floating Action Button -->
@@ -519,6 +521,11 @@ Scripts
     <script type="text/javascript" src="{!! asset('js/plugins.min.js') !!}"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="{!! asset('js/custom-script.js') !!}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.tooltipped').tooltip({delay: 50});
+        });
+    </script>
 @show
 </body>
 

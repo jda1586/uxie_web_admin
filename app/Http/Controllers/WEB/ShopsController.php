@@ -11,4 +11,9 @@ class ShopsController extends Controller
     {
         return view('shops.index');
     }
+
+    public function create()
+    {
+        return view('shops.create');
+    }
 }

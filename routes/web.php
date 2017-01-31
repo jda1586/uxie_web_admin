@@ -18,6 +18,8 @@ Route::group(['namespace' => 'WEB'], function () {
 
         Route::group(['prefix' => 'shops', 'as' => 'shops.'], function () {
             Route::get('/', 'ShopsController@index')->name('index');
+            Route::get('/create', 'ShopsController@create')->name('create');
+            Route::post('/store', 'ShopsController@store')->name('store');
         });
     });
 

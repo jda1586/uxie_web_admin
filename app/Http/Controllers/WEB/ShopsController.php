@@ -38,6 +38,6 @@ class ShopsController extends Controller
         if ($validator->fails())
             return redirect()->route('shops.create')->withErrors($validator);
 
-        n
+
     }
 }

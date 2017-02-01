@@ -98,6 +98,9 @@
                                 <label for="" class="">Telefono</label>
                             </div>
                         </div>
+                        <div class="row">
+                            <div id="map"></div>
+                        </div>
 
                         <div class="row">
                             <div class="input-field col s12">
@@ -115,5 +118,22 @@
         </div>
     </div>
 
+@endsection
+
+@section('_footer')
+    @parent
+    <script>
+        function initMap() {
+            // Create a map object and specify the DOM element for display.
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -34.397, lng: 150.644},
+                scrollwheel: false,
+                zoom: 8
+            });
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9XvVN3TY3CXzNfANcsVJZE74aTLxt0nQ&callback=initMap"
+            async defer></script>
 @endsection
 

@@ -99,24 +99,26 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12 m3 l3">
-                                <i class="mdi-maps-terrain prefix"></i>
-                                <input type="text" name="phone">
-                                <label for="phone" class="">Telefono</label>
+                                <select id="country" name="country">
+                                    <option value="" class="grey-text" disabled selected>Pais</option>
+                                    <option value="mexico">Mexico</option>
+                                </select>
+                                {{--<label class="">Pais</label>--}}
                             </div>
                             <div class="input-field col s12 m3 l3">
-                                <i class="mdi-maps-terrain prefix"></i>
-                                <input type="text" name="phone">
-                                <label for="phone" class="">Telefono</label>
+                                {{--<i class="mdi-maps-terrain prefix"></i>--}}
+                                <input type="text" name="state">
+                                <label for="" class="">Estado</label>
                             </div>
                             <div class="input-field col s12 m3 l3">
-                                <i class="mdi-maps-terrain prefix"></i>
-                                <input type="text" name="phone">
-                                <label for="phone" class="">Telefono</label>
+                                {{--<i class="mdi-maps-terrain prefix"></i>--}}
+                                <input type="text" name="ciudad">
+                                <label for="" class="">Ciuadad</label>
                             </div>
                             <div class="input-field col s12 m3 l3">
-                                <i class="mdi-maps-terrain prefix"></i>
-                                <input type="text" name="phone">
-                                <label for="phone" class="">Telefono</label>
+                                {{--<i class="mdi-maps-terrain prefix"></i>--}}
+                                <input type="text" name="postal_code">
+                                <label for="" class="">Codigo portal</label>
                             </div>
                         </div>
                         <div class="row">

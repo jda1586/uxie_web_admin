@@ -58,9 +58,8 @@
                                     <option value="other">Varios</option>
                                 </select>
                             </div>
-
-
                         </div>
+
                         <div class="row">
                             <div class="input-field col s12 m6 l6">
                                 <i class="mdi-communication-email prefix"></i>
@@ -99,7 +98,9 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div id="map"></div>
+                            <div class="col s12">
+                                <div id="map" style="height: 350px;"></div>
+                            </div>
                         </div>
 
                         <div class="row">
@@ -123,15 +124,15 @@
 @section('_footer')
     @parent
     <script>
+        var mao;
         function initMap() {
             // Create a map object and specify the DOM element for display.
-            var map = new google.maps.Map(document.getElementById('map'), {
+            map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: -34.397, lng: 150.644},
                 scrollwheel: false,
                 zoom: 8
             });
         }
-
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9XvVN3TY3CXzNfANcsVJZE74aTLxt0nQ&callback=initMap"
             async defer></script>

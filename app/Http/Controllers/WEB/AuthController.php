@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WEB;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use Validator;
 
@@ -24,5 +25,11 @@ class AuthController extends Controller
 
         if (auth()->attempt(['email' => Input::get('email'), 'password' => Input::get('password')], Input::get('remember')))
             return redirect()->route('home');
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('auth.index');
     }
 }

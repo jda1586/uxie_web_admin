@@ -41,14 +41,14 @@
                         <div class="row">
                             <div class="input-field col s12 m6 l6">
                                 <i class="mdi-action-account-circle prefix"></i>
-                                <input id="name3" type="text">
+                                <input type="text" name="first_name">
                                 <label for="first_name" class="">Nombre comercial</label>
                             </div>
 
 
                             <div class="input-field col s12 m6 l6">
-                                {{--<label>Materialize Select</label>--}}
-                                <select>
+                                {{--<label for="category">Materialize Select</label>--}}
+                                <select id="category" name="category">
                                     <option value="" class="grey-text" disabled selected>Categoria...</option>
                                     <option value="auto">Automotriz</option>
                                     <option value="health">Salud</option>
@@ -63,12 +63,12 @@
                         <div class="row">
                             <div class="input-field col s12 m6 l6">
                                 <i class="mdi-communication-email prefix"></i>
-                                <input id="email3" type="email">
+                                <input type="email" name="email">
                                 <label for="email" class="">Correo</label>
                             </div>
                             <div class="input-field col s12 m6 l6">
                                 <i class="mdi-action-lock-outline prefix"></i>
-                                <input id="password3" type="password">
+                                <input type="password" name="password">
                                 <label for="password" class="">Contraseña</label>
                             </div>
                         </div>
@@ -80,26 +80,56 @@
                                 <label for="" class="">Calle</label>
                             </div>
                             <div class="input-field col s12 m3 l3">
-                                <i class="mdi-editor-format-list-numbered prefix"></i>
-                                <input id="" type="text">
-                                <label for="" class="">No. Interior</label>
+                                {{--<i class="mdi-editor-format-list-numbered prefix"></i>--}}
+                                <input type="text" name="outside_number">
+                                <label for="outside_number" class="">No. Interior</label>
                             </div>
                             <div class="input-field col s12 m3 l3">
-                                <i class="mdi-action-lock-outline prefix"></i>
-                                <input id="" type="text">
-                                <label for="" class="">No. Exterior</label>
+                                {{--<i class="mdi-action-lock-outline prefix"></i>--}}
+                                <input type="text" name="inside_number">
+                                <label for="inside_number" class="">No. Exterior</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="mdi-communication-phone prefix"></i>
-                                <input id="" type="password">
-                                <label for="" class="">Telefono</label>
+                                <input type="text" name="phone">
+                                <label for="phone" class="">Telefono</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m3 l3">
+                                <i class="mdi-maps-terrain prefix"></i>
+                                <input type="text" name="phone">
+                                <label for="phone" class="">Telefono</label>
+                            </div>
+                            <div class="input-field col s12 m3 l3">
+                                <i class="mdi-maps-terrain prefix"></i>
+                                <input type="text" name="phone">
+                                <label for="phone" class="">Telefono</label>
+                            </div>
+                            <div class="input-field col s12 m3 l3">
+                                <i class="mdi-maps-terrain prefix"></i>
+                                <input type="text" name="phone">
+                                <label for="phone" class="">Telefono</label>
+                            </div>
+                            <div class="input-field col s12 m3 l3">
+                                <i class="mdi-maps-terrain prefix"></i>
+                                <input type="text" name="phone">
+                                <label for="phone" class="">Telefono</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
                                 <div id="map" style="height: 350px;"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <span id="_long"></span>
+                                <span id="_lat"></span>
+                                <input type="hidden" name="latitude" value="">
+                                <input type="hidden" name="longitiude" value="">
                             </div>
                         </div>
 

@@ -13,6 +13,8 @@
 
 Route::group(['namespace' => 'WEB'], function () {
 
+    Route::any('/logout', 'AuthController@logout')->name('logout');
+
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/', 'DashboardController@index')->name('home');
 
@@ -25,7 +27,7 @@ Route::group(['namespace' => 'WEB'], function () {
 
 });
 
-Route::group(['as' => 'auth.'], function () {
+Route::group(['namespace' => 'WEB', 'as' => 'auth.'], function () {
     Route::get('/login', 'AuthController@index')->name('index');
     Route::post('/login/request', 'AuthController@login')->name('login');
 });

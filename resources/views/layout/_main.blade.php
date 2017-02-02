@@ -165,7 +165,8 @@
                 <li class="user-details cyan darken-2">
                     <div class="row">
                         <div class="col col s4 m4 l4">
-                            <img src="{!! url('images/avatar.jpg') !!}" alt="" class="circle responsive-img valign profile-image">
+                            <img src="{!! url('images/avatar.jpg') !!}" alt=""
+                                 class="circle responsive-img valign profile-image">
                         </div>
                         <div class="col col s8 m8 l8">
                             <ul id="profile-dropdown" class="dropdown-content">
@@ -178,7 +179,10 @@
                                 <li class="divider"></li>
                                 <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
                                 </li>
-                                <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                <li>
+                                    <a href="{!! route('logout') !!}">
+                                        <i class="mdi-hardware-keyboard-tab"></i> Logout
+                                    </a>
                                 </li>
                             </ul>
                             <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#"
@@ -477,7 +481,8 @@
             </a>
         </li>
         <li>
-            <a href="{!! route('shops.create') !!}" class="tooltipped btn-floating green" data-position="left" data-delay="20"
+            <a href="{!! route('shops.create') !!}" class="tooltipped btn-floating green" data-position="left"
+               data-delay="20"
                data-tooltip="Nuevo Comercio">
                 <i class="large mdi-action-store"></i>
             </a>

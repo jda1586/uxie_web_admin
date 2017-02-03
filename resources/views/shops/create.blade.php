@@ -180,7 +180,7 @@
             }
 
             var marker = new google.maps.Marker({
-                position: myLatLng,
+                position: {lat: map.lat(), lng: map.lng()},
                 map: map,
                 title: 'Hello World!',
                 draggable: true

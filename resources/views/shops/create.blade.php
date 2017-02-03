@@ -183,6 +183,7 @@
             } else {
                 // Browser doesn't support Geolocation
                 //handleLocationError(false, infoWindow, map.getCenter());
+                alert('error');
                 map.setCenter(myLatLng);
                 var marker = new google.maps.Marker({
                     position: myLatLng,

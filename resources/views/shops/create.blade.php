@@ -179,6 +179,7 @@
                 map.setCenter(myLatLng);
             }
 
+            alert(map.getCenter().toString())
             var marker = new google.maps.Marker({
                 position: map.getCenter(),
                 map: map,

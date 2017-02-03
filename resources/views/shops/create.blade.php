@@ -164,6 +164,18 @@
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: myLatLng,
+                        scrollwheel: false,
+                        zoom: 17
+                    });
+                    //map.setCenter(myLatLng);
+                    var marker = new google.maps.Marker({
+                        position: myLatLng,
+                        map: map,
+                        title: 'Hello World!',
+                        draggable: true,
+                    });
                 }, function () {
                     //handleLocationError(true, infoWindow, map.getCenter());
                 });
@@ -171,24 +183,19 @@
                 // Browser doesn't support Geolocation
                 //handleLocationError(false, infoWindow, map.getCenter());
                 myLatLng = {lat: 19.426594, lng: -99.1677644};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: myLatLng,
+                    scrollwheel: false,
+                    zoom: 17
+                });
+                //map.setCenter(myLatLng);
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: 'Hello World!',
+                    draggable: true,
+                });
             }
-
-            // Create a map object and specify the DOM element for display.
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: myLatLng,
-                scrollwheel: false,
-                zoom: 17
-            });
-
-            map.setCenter(myLatLng);
-
-            var marker = new google.maps.Marker({
-                position: myLatLng,
-                map: map,
-                title: 'Hello World!',
-                draggable: true,
-            });
-
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9XvVN3TY3CXzNfANcsVJZE74aTLxt0nQ&callback=initMap"

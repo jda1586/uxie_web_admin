@@ -153,9 +153,8 @@
 @section('_footer')
     @parent
     <script>
-        var myLatLng = {lat: 19.426594, lng: -99.1677644};
-
         function initMap() {
+            var myLatLng = {lat: 19.426594, lng: -99.1677644};
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: myLatLng,
                 scrollwheel: false,
@@ -176,7 +175,7 @@
             } else {
                 // Browser doesn't support Geolocation
                 //handleLocationError(false, infoWindow, map.getCenter());
-                alert('error');
+                alert('Tu mavegador no soporta geolocalizacion');
                 map.setCenter(myLatLng);
             }
 
@@ -184,7 +183,7 @@
                 position: myLatLng,
                 map: map,
                 title: 'Hello World!',
-                draggable: true,
+                draggable: true
             });
         }
     </script>

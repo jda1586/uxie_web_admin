@@ -153,9 +153,10 @@
 @section('_footer')
     @parent
     <script>
+        var map;
         function initMap() {
             var myLatLng = {lat: 19.426594, lng: -99.1677644};
-            var map = new google.maps.Map(document.getElementById('map'), {
+            map = new google.maps.Map(document.getElementById('map'), {
                 center: myLatLng,
                 scrollwheel: false,
                 zoom: 17
@@ -169,6 +170,13 @@
                         lng: position.coords.longitude
                     };
                     map.setCenter(myLatLng);
+                    alert(map.getCenter().toString())
+                    var marker = new google.maps.Marker({
+                        position: map.getCenter(),
+                        map: map,
+                        title: 'Hello World!',
+                        draggable: true
+                    });
                 }, function () {
                     //handleLocationError(true, infoWindow, map.getCenter());
                 });
@@ -179,13 +187,7 @@
                 map.setCenter(myLatLng);
             }
 
-            alert(map.getCenter().toString())
-            var marker = new google.maps.Marker({
-                position: map.getCenter(),
-                map: map,
-                title: 'Hello World!',
-                draggable: true
-            });
+
         }
     </script>
     <script async defer

@@ -170,12 +170,6 @@
                         lng: position.coords.longitude
                     };
                     map.setCenter(pos);
-                    var marker = new google.maps.Marker({
-                        position: pos,
-                        map: map,
-                        title: 'Hello World!',
-                        draggable: true,
-                    });
                 }, function () {
                     //handleLocationError(true, infoWindow, map.getCenter());
                 });
@@ -184,13 +178,14 @@
                 //handleLocationError(false, infoWindow, map.getCenter());
                 alert('error');
                 map.setCenter(myLatLng);
-                var marker = new google.maps.Marker({
-                    position: myLatLng,
-                    map: map,
-                    title: 'Hello World!',
-                    draggable: true,
-                });
             }
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Hello World!',
+                draggable: true,
+            });
         }
     </script>
     <script async defer

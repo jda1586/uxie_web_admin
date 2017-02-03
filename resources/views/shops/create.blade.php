@@ -99,11 +99,8 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12 m3 l3">
-                                <select id="country" name="country">
-                                    <option value="" class="grey-text" disabled selected>Pais</option>
-                                    <option value="mexico">Mexico</option>
-                                </select>
-                                {{--<label class="">Pais</label>--}}
+                                <input type="text" name="country" value="Mexico" readonly>
+                                <label for="" class="">Pais</label>
                             </div>
                             <div class="input-field col s12 m3 l3">
                                 {{--<i class="mdi-maps-terrain prefix"></i>--}}
@@ -112,8 +109,8 @@
                             </div>
                             <div class="input-field col s12 m3 l3">
                                 {{--<i class="mdi-maps-terrain prefix"></i>--}}
-                                <input type="text" name="ciudad">
-                                <label for="" class="">Ciuadad</label>
+                                <input type="text" name="city">
+                                <label for="" class="">Ciudad</label>
                             </div>
                             <div class="input-field col s12 m3 l3">
                                 {{--<i class="mdi-maps-terrain prefix"></i>--}}
@@ -156,14 +153,42 @@
 @section('_footer')
     @parent
     <script>
-        var mao;
+        var myLatLng = {};
+
         function initMap() {
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    myLatLng = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                }, function () {
+                    //handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                //handleLocationError(false, infoWindow, map.getCenter());
+                myLatLng = {lat: 19.426594, lng: -99.1677644};
+            }
+
             // Create a map object and specify the DOM element for display.
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng,
                 scrollwheel: false,
-                zoom: 8
+                zoom: 17
             });
+
+            map.setCenter(myLatLng);
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Hello World!',
+                draggable: true,
+            });
+
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9XvVN3TY3CXzNfANcsVJZE74aTLxt0nQ&callback=initMap"

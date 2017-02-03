@@ -166,7 +166,7 @@
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
-                    myLatLng = {
+                    var myLatLng = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
@@ -183,7 +183,7 @@
             } else {
                 // Browser doesn't support Geolocation
                 //handleLocationError(false, infoWindow, map.getCenter());
-                myLatLng = {lat: 19.426594, lng: -99.1677644};
+                var myLatLng = {lat: 19.426594, lng: -99.1677644};
                 map.setCenter(myLatLng);
                 var marker = new google.maps.Marker({
                     position: myLatLng,

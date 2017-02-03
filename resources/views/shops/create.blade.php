@@ -157,7 +157,7 @@
         var map;
 
         function initMap() {
-
+            myLatLng = {lat: 19.426594, lng: -99.1677644};
             map = new google.maps.Map(document.getElementById('map'), {
                 center: myLatLng,
                 scrollwheel: false,
@@ -184,7 +184,6 @@
             } else {
                 // Browser doesn't support Geolocation
                 //handleLocationError(false, infoWindow, map.getCenter());
-                myLatLng = {lat: 19.426594, lng: -99.1677644};
                 map.setCenter(myLatLng);
                 var marker = new google.maps.Marker({
                     position: myLatLng,

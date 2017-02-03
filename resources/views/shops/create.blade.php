@@ -164,11 +164,11 @@
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
-                    var pos = {
+                    myLatLng = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
-                    map.setCenter(pos);
+                    map.setCenter(myLatLng);
                 }, function () {
                     //handleLocationError(true, infoWindow, map.getCenter());
                 });

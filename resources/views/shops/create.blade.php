@@ -153,11 +153,12 @@
 @section('_footer')
     @parent
     <script>
-        var myLatLng = {};
+        var myLatLng;
+        var map;
 
         function initMap() {
 
-            var map = new google.maps.Map(document.getElementById('map'), {
+            map = new google.maps.Map(document.getElementById('map'), {
                 center: myLatLng,
                 scrollwheel: false,
                 zoom: 17

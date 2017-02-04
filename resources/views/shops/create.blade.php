@@ -41,14 +41,14 @@
                         <div class="row">
                             <div class="input-field col s12 m6 l6">
                                 <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" name="first_name">
-                                <label for="first_name" class="">Nombre comercial</label>
+                                <input type="text" name="name">
+                                <label class="">Nombre comercial</label>
                             </div>
 
 
                             <div class="input-field col s12 m6 l6">
                                 {{--<label for="category">Materialize Select</label>--}}
-                                <select id="category" name="category">
+                                <select name="category">
                                     <option value="" class="grey-text" disabled selected>Categoria...</option>
                                     <option value="auto">Automotriz</option>
                                     <option value="health">Salud</option>
@@ -60,23 +60,23 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        {{--<div class="row">
                             <div class="input-field col s12 m6 l6">
                                 <i class="mdi-communication-email prefix"></i>
                                 <input type="email" name="email">
-                                <label for="email" class="">Correo</label>
+                                <label class="">Correo</label>
                             </div>
                             <div class="input-field col s12 m6 l6">
                                 <i class="mdi-action-lock-outline prefix"></i>
                                 <input type="password" name="password">
                                 <label for="password" class="">Contraseña</label>
                             </div>
-                        </div>
+                        </div>--}}
 
                         <div class="row">
                             <div class="input-field col s12 m6 l6">
                                 <i class="mdi-action-home prefix"></i>
-                                <input id="" type="text">
+                                <input type="text" name="street">
                                 <label for="" class="">Calle</label>
                             </div>
                             <div class="input-field col s12 m3 l3">
@@ -124,11 +124,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col s12">
-                                <span id="_long"></span>
-                                <span id="_lat"></span>
-                                <input type="hidden" name="latitude" value="">
-                                <input type="hidden" name="longitude" value="">
+                            <div class="input-field col s12 m6 l6">
+                                <input type="text" name="latitude" value="0" readonly>
+                                <label for="" class="">Latitud</label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <input type="text" name="longitude" value="0" readonly>
+                                <label for="" class="">Longitud</label>
                             </div>
                         </div>
 
@@ -170,10 +172,12 @@
                         lng: position.coords.longitude
                     };
                     map.setCenter(myLatLng);
+                    $('input[name=latitude]').val(position.coords.latitude);
+                    $('input[name=longitude]').val(position.coords.longitude);
                     var marker = new google.maps.Marker({
                         position: map.getCenter(),
                         map: map,
-                        title: 'Hello World!',
+                        title: 'Aqui!',
                         draggable: true
                     });
                     marker.addListener('dragend', function (event) {

@@ -128,7 +128,7 @@
                                 <span id="_long"></span>
                                 <span id="_lat"></span>
                                 <input type="hidden" name="latitude" value="">
-                                <input type="hidden" name="longitiude" value="">
+                                <input type="hidden" name="longitude" value="">
                             </div>
                         </div>
 
@@ -170,12 +170,15 @@
                         lng: position.coords.longitude
                     };
                     map.setCenter(myLatLng);
-                    alert(map.getCenter().toString())
                     var marker = new google.maps.Marker({
                         position: map.getCenter(),
                         map: map,
                         title: 'Hello World!',
                         draggable: true
+                    });
+                    marker.addListener('dragend', function (event) {
+                        $('input[name=latitude]').val(event.latLng.lat());
+                        $('input[name=longitude]').val(event.latLng.lng());
                     });
                 }, function () {
                     //handleLocationError(true, infoWindow, map.getCenter());
@@ -186,7 +189,6 @@
                 alert('Tu mavegador no soporta geolocalizacion');
                 map.setCenter(myLatLng);
             }
-
 
         }
     </script>

@@ -27,6 +27,7 @@ Route::group(['namespace' => 'WEB'], function () {
         Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
             Route::get('/', 'UsersController@index')->name('index');
             Route::get('/create', 'UsersController@create')->name('create');
+            Route::post('/store', 'UsersController@store')->name('store');
         });
     });
 

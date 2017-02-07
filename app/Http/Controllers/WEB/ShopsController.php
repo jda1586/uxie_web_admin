@@ -24,7 +24,7 @@ class ShopsController extends Controller
      * @param $email
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create($email)
+    public function create($email = '')
     {
         $validator = Validator::make(['email' => $email], [
             'email' => 'required|email|exists:users,email'

@@ -561,7 +561,7 @@ Scripts
                         .done(function (resp) {
                             if (resp.ok) {
                                 /*swal("Correcto!", "El usuario: " + inputValue + " sera el administrador del nuevo comercio.", "success");*/
-                                window.location.href = '{!! route('shops.create') !!}';
+                                window.location.href = '{!! route('shops.create') !!}/' + inputValue;
                             } else {
                                 _createUserError(resp);
                             }

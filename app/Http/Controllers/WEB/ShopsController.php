@@ -21,13 +21,19 @@ class ShopsController extends Controller
 
     /**
      * Formulario para nuevo comercio
+     * @param $email
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create($email)
     {
+        $validator = Validator::make(['email' => $email], [
+            'email' => 'required|email|exists:users,email'
+        ]);
+        if ($validator->fails())
+            return redirect()->back();
+
         return view('shops.create');
     }
-
 
     public function store()
     {

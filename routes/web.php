@@ -13,9 +13,9 @@
 
 Route::group(['namespace' => 'WEB'], function () {
 
-    Route::any('/logout', 'AuthController@logout')->name('logout');
-
     Route::group(['middleware' => 'auth'], function () {
+        Route::any('/logout', 'AuthController@logout')->name('logout');
+
         Route::get('/', 'DashboardController@index')->name('home');
 
         Route::group(['prefix' => 'shops', 'as' => 'shops.'], function () {
@@ -23,11 +23,16 @@ Route::group(['namespace' => 'WEB'], function () {
             Route::get('/create', 'ShopsController@create')->name('create');
             Route::post('/store', 'ShopsController@store')->name('store');
         });
+
+        Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+            Route::get('/', 'UsersController@index')->name('index');
+            Route::get('/create', 'UsersController@create')->name('create');
+        });
     });
 
-});
+    Route::group(['as' => 'auth.'], function () {
+        Route::get('/login', 'AuthController@index')->name('index');
+        Route::post('/login/request', 'AuthController@login')->name('login');
+    });
 
-Route::group(['namespace' => 'WEB', 'as' => 'auth.'], function () {
-    Route::get('/login', 'AuthController@index')->name('index');
-    Route::post('/login/request', 'AuthController@login')->name('login');
 });

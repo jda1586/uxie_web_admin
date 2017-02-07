@@ -36,6 +36,9 @@
               rel="stylesheet" media="screen,projection">
         <link href="{!! asset('js/plugins/chartist-js/chartist.min.css') !!}" type="text/css" rel="stylesheet"
               media="screen,projection">
+
+        <link href="{!! asset('js/plugins/sweetalert/dist/sweetalert.css') !!}" type="text/css" rel="stylesheet"
+              media="screen,projection">
     @show
 </head>
 
@@ -239,6 +242,12 @@
                     <div class="divider"></div>
                 </li>
                 <li class="li-hover"><p class="ultra-small margin more-text">Administración</p></li>
+
+                <li class="bold">
+                    <a href="{!! route('users.index') !!}" class="waves-effect waves-cyan">
+                        <i class="mdi-social-person"></i> Usuarios
+                    </a>
+                </li>
 
                 <li class="bold">
                     <a href="{!! route('shops.index') !!}" class="waves-effect waves-cyan">
@@ -469,7 +478,7 @@
 <!-- END FOOTER -->
 
 <!-- Floating Action Button -->
-<div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
+<div class="fixed-action-btn" style="bottom: 20px; right: 20px;">
     <a class="btn-floating btn-large blue">
         <i class="mdi-editor-format-list-bulleted"></i>
     </a>
@@ -480,19 +489,19 @@
                 <i class="large mdi-communication-live-help"></i>
             </a>
         </li>
-        <li>
-            <a href="{!! route('shops.create') !!}" class="tooltipped btn-floating green" data-position="left"
-               data-delay="20"
-               data-tooltip="Nuevo Comercio">
+        <li id="_newShop">
+            <a href="#" class="tooltipped btn-floating green" data-position="left"
+               data-delay="20" data-tooltip="Nuevo Comercio">
                 <i class="large mdi-action-store"></i>
             </a>
         </li>
-        {{--<li>
-            <a href="#" class="btn-floating green">
-                <i class="large mdi-editor-insert-invitation"></i>
+        <li>
+            <a href="{!! route('users.create') !!}" class="tooltipped btn-floating green" data-position="left"
+               data-delay="20" data-tooltip="Nuevo Usuario">
+                <i class="large mdi-social-person-add"></i>
             </a>
         </li>
-        <li>
+        {{--<li>
             <a href="#" class="btn-floating blue">
                 <i class="large mdi-communication-email"></i>
             </a>
@@ -526,9 +535,78 @@ Scripts
     <script type="text/javascript" src="{!! asset('js/plugins.min.js') !!}"></script>
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="{!! asset('js/custom-script.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/plugins/sweetalert/dist/sweetalert.min.js') !!}"></script>
     <script>
+        function _createUser() {
+            swal({
+                    title: "Uxie | nuevo comercio",
+                    text: "Correo de un usuario activo para administrar este comercio:",
+                    type: "input",
+                    showCancelButton: true,
+                    closeOnConfirm: false,
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonText: 'Crear',
+                    confirmButtonColor: 'green',
+                    showLoaderOnConfirm: true,
+                    animation: "slide-from-top",
+                    inputPlaceholder: "Correo"
+                },
+                function (inputValue) {
+                    if (inputValue === false) return false;
+                    if (inputValue === "") {
+                        swal.showInputError("Debe ser un correo valio y registrado en Uxie");
+                        return false
+                    }
+                    $.post('{!! route('api.users.exists') !!}', {email: inputValue})
+                        .done(function (resp) {
+                            if (resp.ok) {
+                                swal({
+                                        title: "Are you sure?",
+                                        text: "You will not be able to recover this imaginary file!",
+                                        type: "warning",
+                                            /*showCancelButton: true,*/
+                                        confirmButtonColor: "green",
+                                        confirmButtonText: "Yes, delete it!",
+                                        closeOnConfirm: false
+                                    },
+                                    function () {
+                                        swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                                    });
+                                swal("Correcto!", "El usuario: " + inputValue + " sera el administrador del nuevo comercio.", "success");
+                            } else {
+                                _createUserError(resp);
+                            }
+                        });
+                    /*swal("Nice!", "You wrote: " + inputValue, "success");*/
+                });
+        }
+        function _createUserError(resp) {
+            console.log(resp);
+            swal({
+                    title: "Informacion incorrecta?",
+                    text: resp.error.email[0],
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "green",
+                    confirmButtonText: "Crear usuario",
+                    cancelButtonText: "Volver",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        window.location.href = '{!! route('users.create') !!}';
+                    }
+                    else {
+                        _createUser();
+                    }
+                });
+        }
         $(document).ready(function () {
             $('.tooltipped').tooltip({delay: 50});
+            $('#_newShop').click(function () {
+                _createUser();
+            });
         });
     </script>
 @show

@@ -560,19 +560,8 @@ Scripts
                     $.post('{!! route('api.users.exists') !!}', {email: inputValue})
                         .done(function (resp) {
                             if (resp.ok) {
-                                swal({
-                                        title: "Are you sure?",
-                                        text: "You will not be able to recover this imaginary file!",
-                                        type: "warning",
-                                            /*showCancelButton: true,*/
-                                        confirmButtonColor: "green",
-                                        confirmButtonText: "Yes, delete it!",
-                                        closeOnConfirm: false
-                                    },
-                                    function () {
-                                        swal("Deleted!", "Your imaginary file has been deleted.", "success");
-                                    });
-                                swal("Correcto!", "El usuario: " + inputValue + " sera el administrador del nuevo comercio.", "success");
+                                /*swal("Correcto!", "El usuario: " + inputValue + " sera el administrador del nuevo comercio.", "success");*/
+                                window.location.href = '{!! route('shops.create) !!}';
                             } else {
                                 _createUserError(resp);
                             }

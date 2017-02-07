@@ -168,7 +168,7 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     myLatLng = {
-                        lat: position.coords.latitude,
+                        lat: position.coords.la_maititude,
                         lng: position.coords.longitude
                     };
                     map.setCenter(myLatLng);

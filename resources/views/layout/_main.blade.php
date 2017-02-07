@@ -553,10 +553,10 @@ Scripts
                 },
                 function (inputValue) {
                     if (inputValue === false) return false;
-                    if (inputValue === "") {
+                    /*if (inputValue === "") {
                         swal.showInputError("Debe ser un correo valio y registrado en Uxie");
                         return false
-                    }
+                    }*/
                     $.post('{!! route('api.users.exists') !!}', {email: inputValue})
                         .done(function (resp) {
                             if (resp.ok) {

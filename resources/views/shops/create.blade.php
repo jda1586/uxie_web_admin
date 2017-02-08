@@ -35,18 +35,17 @@
             <div class="card-panel">
                 <h4 class="header2">Ingresa los datos del nuevo comercio</h4>
 
-
                 <div class="row">
                     <form class="col s12" action="{!! route('shops.store') !!}" method="post" id="newShop">
                         <div class="row">
                             <div class="input-field col s12 m6 l6">
                                 <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" name="name">
+                                <input type="text" name="name" autofocus>
                                 <label class="">Nombre comercial</label>
                             </div>
 
 
-                            <div class="input-field col s12 m6 l6">
+                            <div class="input-field col s12 m3 l3">
                                 {{--<label for="category">Materialize Select</label>--}}
                                 <select name="category">
                                     <option value="" class="grey-text" disabled selected>Categoria...</option>
@@ -57,6 +56,12 @@
                                     <option value="entertainment">Entretenimiento</option>
                                     <option value="other">Varios</option>
                                 </select>
+                            </div>
+
+                            <div class="input-field col s12 m3 l3">
+                                {{--<i class="mdi-action-account-circle prefix"></i>--}}
+                                <input type="text" name="owner" value="{!! $email !!}" readonly>
+                                <label class="">Administrador</label>
                             </div>
                         </div>
 
@@ -168,7 +173,7 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     myLatLng = {
-                        lat: position.coords.la_maititude,
+                        lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
                     map.setCenter(myLatLng);

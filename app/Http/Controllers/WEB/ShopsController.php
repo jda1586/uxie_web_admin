@@ -32,7 +32,9 @@ class ShopsController extends Controller
         if ($validator->fails())
             return redirect()->back();
 
-        return view('shops.create');
+        return view('shops.create', [
+            'email' => $email,
+        ]);
     }
 
     public function store()

@@ -44,7 +44,6 @@
                                 <label class="">Nombre comercial</label>
                             </div>
 
-
                             <div class="input-field col s12 m3 l3">
                                 {{--<label for="category">Materialize Select</label>--}}
                                 <select name="category">

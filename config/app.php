@@ -180,7 +180,7 @@ return [
         /*
          * Custom
          */
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+        \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
 
 
     ],

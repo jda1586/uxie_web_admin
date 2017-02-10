@@ -48,8 +48,8 @@
                                 {{--<label for="category">Materialize Select</label>--}}
                                 <select name="category">
                                     <option value="" class="grey-text" disabled selected>Categoria...</option>
-                                    @foreach($categories as $cat_k => $cat_v)
-                                        <option value="{!! $cat_k !!}">{{ $cat_v }}</option>
+                                    @foreach($categories as $catId => $catName)
+                                        <option value="{!! $catId !!}">{{ $catName }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -138,7 +138,7 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <button class="btn cyan waves-effect waves-light right" type="submit" name="action">
-                                    Submit
+                                    Crear
                                     <i class="mdi-content-send right"></i>
                                 </button>
                             </div>

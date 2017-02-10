@@ -35,7 +35,7 @@ class ShopsController extends Controller
 
         return view('shops.create', [
             'email' => $email,
-            'categories' => Category::where('status', 'active')->lists('name', 'id'),
+            'categories' => Category::where('status', 'active')->lists('name', 'id')->all(),
 
         ]);
     }

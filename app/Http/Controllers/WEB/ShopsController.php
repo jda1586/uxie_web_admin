@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\WEB;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -34,6 +35,8 @@ class ShopsController extends Controller
 
         return view('shops.create', [
             'email' => $email,
+            'categories' => Category::where('status', 'active')->lists('name', 'id'),
+
         ]);
     }
 

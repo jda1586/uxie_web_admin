@@ -48,12 +48,9 @@
                                 {{--<label for="category">Materialize Select</label>--}}
                                 <select name="category">
                                     <option value="" class="grey-text" disabled selected>Categoria...</option>
-                                    <option value="auto">Automotriz</option>
-                                    <option value="health">Salud</option>
-                                    <option value="style">Belleza</option>
-                                    <option value="food">Comida</option>
-                                    <option value="entertainment">Entretenimiento</option>
-                                    <option value="other">Varios</option>
+                                    @foreach($categories as $category)
+                                        <option value="{!! $category->id !!}">{{ $category->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 

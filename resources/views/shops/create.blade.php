@@ -37,10 +37,11 @@
 
                 <div class="row">
                     <form class="col s12" action="{!! route('shops.store') !!}" method="post" id="newShop">
+                        {{ csrf_field() }}
                         <div class="row">
                             <div class="input-field col s12 m6 l6">
                                 <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" name="name" autofocus>
+                                <input type="text" name="name">
                                 <label class="">Nombre comercial</label>
                             </div>
 

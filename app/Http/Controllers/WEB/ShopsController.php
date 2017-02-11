@@ -4,6 +4,7 @@ namespace App\Http\Controllers\WEB;
 
 use App\Category;
 use App\Shop;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -19,7 +20,10 @@ class ShopsController extends Controller
      */
     public function index()
     {
-        return view('shops.index');
+        return view('shops.index', [
+            'active' => Shop::whereStatus('active')->count(),
+
+        ]);
     }
 
     /**
@@ -42,6 +46,10 @@ class ShopsController extends Controller
         ]);
     }
 
+    /**
+     * Graba un nuevo comercio
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function store()
     {
         $validator = Validator::make(Input::all(), [
@@ -60,7 +68,8 @@ class ShopsController extends Controller
             return redirect()->route('shops.create')->withErrors($validator);
 
         $shop = Shop::create([
-            'owner_id' => User::where('email', Input::get('email'))->first()->id,
+            'user_id' => auth()->user()->id,
+            'owner_id' => User::whereEmail(Input::get('owner'))->first()->id,
             'name' => Input::get('name'),
             'category_id' => Input::get('category'),
             'street' => Input::get('street'),

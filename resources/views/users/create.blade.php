@@ -36,11 +36,16 @@
 
                 <div class="row">
                     <form class="col s12" action="{!! route('users.store') !!}" method="post" id="newShop">
+                        {{ csrf_field() }}
                         <div class="row">
                             <div class="input-field col s12 m6 l6">
                                 <i class="mdi-action-account-circle prefix"></i>
-                                <input type="text" name="name" autofocus>
-                                <label class="">Nombre</label>
+                                <input type="text" name="first_name">
+                                <label class="">Nombre(s)</label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <input type="text" name="last_name">
+                                <label class="">Apellidos</label>
                             </div>
 
                             {{--<div class="input-field col s12 m3 l3">
@@ -57,7 +62,7 @@
                             </div>--}}
                         </div>
 
-                        {{--<div class="row">
+                        <div class="row">
                             <div class="input-field col s12 m6 l6">
                                 <i class="mdi-communication-email prefix"></i>
                                 <input type="email" name="email">
@@ -68,14 +73,14 @@
                                 <input type="password" name="password">
                                 <label for="password" class="">Contraseña</label>
                             </div>
-                        </div>--}}
+                        </div>
 
 
 
                         <div class="row">
                             <div class="input-field col s12">
                                 <button class="btn cyan waves-effect waves-light right" type="submit" name="action">
-                                    Submit
+                                    Crear
                                     <i class="mdi-content-send right"></i>
                                 </button>
                             </div>

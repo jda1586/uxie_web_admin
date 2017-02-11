@@ -39,9 +39,9 @@
                                 <p class="card-stats-title">
                                     <i class="mdi-action-store"></i> Activos
                                 </p>
-                                <h4 class="card-stats-number">566</h4>
+                                <h4 class="card-stats-number">{{ number_format($active,0,'.',',') }}</h4>
                                 <p class="card-stats-compare">
-                                    <i class="mdi-hardware-keyboard-arrow-up"></i> 15%
+                                    <i class="mdi-hardware-keyboard-arrow-up"></i> 0%
                                     <span class="green-text text-lighten-5">*</span>
                                 </p>
                             </div>
@@ -57,11 +57,11 @@
                         <div class="card">
                             <div class="card-content  green white-text">
                                 <p class="card-stats-title">
-                                    <i class="mdi-action-store"></i> Vistas promedio
+                                    <i class="mdi-action-store"></i> Visitas promedio
                                 </p>
-                                <h4 class="card-stats-number">18</h4>
+                                <h4 class="card-stats-number">0</h4>
                                 <p class="card-stats-compare">
-                                    <i class="mdi-hardware-keyboard-arrow-up"></i> 5%
+                                    <i class="mdi-hardware-keyboard-arrow-up"></i> 0%
                                     <span class="green-text text-lighten-5">*</span>
                                 </p>
                             </div>
@@ -97,7 +97,6 @@
             </div>
 
 
-
         </div>
 
     </div>
@@ -115,7 +114,7 @@
     <script type="text/javascript" src="{!! asset('js/plugins/sparkline/sparkline-script.js') !!}"></script>
     <script>
         $(document).ready(function () {
-            $("#clients-bar").sparkline([70, 80, 65, 78, 58, 80, 78, 80, 70, 50, 75, 65, 80, 70, 65, 90, 65, 80, 70, 65, 90], {
+            $("#clients-bar").sparkline([0, 0, 0, 0], {
                 type: 'bar',
                 height: '25',
                 barWidth: 7,
@@ -125,7 +124,8 @@
                 zeroColor: '#81d4fa',
             });
 
-            $("#clients-bar2").sparkline([70, 80, 65, 78, 58, 80, 78, 80, 70, 50, 75, 65, 80, 70, 65, 90, 65, 80, 70, 65, 90], {
+
+            $("#clients-bar2").sparkline([0, 0, 0, 0], { //necesita 21 datos
                 type: 'bar',
                 height: '25',
                 barWidth: 7,

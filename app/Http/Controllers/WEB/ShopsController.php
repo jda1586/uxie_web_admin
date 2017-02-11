@@ -68,7 +68,7 @@ class ShopsController extends Controller
             'inside_number' => Input::get('inside_number'),
             'postal_code' => Input::get('postal_code'),
             'phone' => Input::get('phone'),
-            'country_id' => 0, 'state_id' => 0, 'city_id' => 0,
+            'country_id' => 0, 'state_id' => 0, 'city_id' => 0,  //TODO: implementar el sistemas de entidades
             'latitude' => Input::get('latitude'),
             'longitude' => Input::get('longitude'),
             'status' => 'active'

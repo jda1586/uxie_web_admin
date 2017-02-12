@@ -22,7 +22,6 @@ class ShopsController extends Controller
     {
         return view('shops.index', [
             'active' => Shop::whereStatus('active')->count(),
-
         ]);
     }
 
@@ -85,7 +84,7 @@ class ShopsController extends Controller
         if ($shop) {
             return redirect()->route('shops.index');
         } else {
-            return redirect()->back()->withInput(Input::all())->withErrors(['error' => 'No fue posible guardar el comercio']);
+            return redirect()->back()->withInput(Input::all())->with('error', 'No fue posible guardar el comercio');
         }
     }
 }

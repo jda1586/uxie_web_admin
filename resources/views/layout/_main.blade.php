@@ -190,7 +190,7 @@
                             </ul>
                             <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#"
                                data-activates="profile-dropdown">
-                                {{ auth()->user()->name }} <i class="mdi-navigation-arrow-drop-down right"></i>
+                                {{ auth()->user()->first_name }} <i class="mdi-navigation-arrow-drop-down right"></i>
                             </a>
                             <p class="user-roal">Administrator</p>
                         </div>

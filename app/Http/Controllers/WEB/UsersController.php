@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\WEB;
 
 use App\User;
+use Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -29,11 +30,18 @@ class UsersController extends Controller
             'last_name' => 'required',
         ]);
         if ($validator->fails())
-            return redirect()->route('users.create')->withErrors($validator);
+            return redirect()->route('users.create')->withErrors($validator)->withInput(Input::all());
 
-        User::create([
+        $user = User::create([
             'email' => Input::get('email'),
-
+            'first_name' => Input::get('first_name'),
+            'last_name' => Input::get('last_name'),
+            'password' => Hash::make(Input::get('password')),
         ]);
+        if ($user) {
+            return redirect()->route('shops.create', ['email' => $user->email]);
+        } else {
+            return redirect()->back()->withInput(Input::all())->with('error', 'El usuario no pudo ser creado');
+        }
     }
 }

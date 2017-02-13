@@ -20,11 +20,13 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-        if ($validator->fails())
+        if ($validator->fails()) {
             return redirect()->route('auth.index')->withErrors($validator)->withInput(Input::all());
+        }
 
-        if (auth()->attempt(['email' => Input::get('email'), 'password' => Input::get('password')], Input::get('remember')))
+        if (auth()->attempt(['email' => Input::get('email'), 'password' => Input::get('password')], Input::get('remember'))) {
             return redirect()->route('home');
+        }
     }
 
     public function logout()

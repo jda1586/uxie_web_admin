@@ -21,7 +21,7 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
         if ($validator->fails()) {
-            return redirect()->route('auth.index')->withErrors($validator)->withInput(Input::all());
+            return redirect()->route('auth.index')->withErrors($validator);
         }
 
         if (auth()->attempt(['email' => Input::get('email'), 'password' => Input::get('password')], Input::get('remember'))) {

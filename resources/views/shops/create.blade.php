@@ -165,6 +165,8 @@
                 scrollwheel: false,
                 zoom: 17
             });
+            $('input[name=latitude]').val(myLatLng.lat);
+            $('input[name=longitude]').val(myLatLng.lng);
 
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
@@ -188,6 +190,7 @@
                     });
                 }, function () {
                     //handleLocationError(true, infoWindow, map.getCenter());
+                    map.setCenter(myLatLng);
                 });
             } else {
                 // Browser doesn't support Geolocation

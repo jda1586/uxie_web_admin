@@ -5,6 +5,7 @@ namespace App\Http\Controllers\WEB;
 use App\Category;
 use App\Shop;
 use App\User;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -22,7 +23,11 @@ class ShopsController extends Controller
     {
         return view('shops.index', [
             'active' => Shop::whereStatus('active')->count(),
-//            'charActive'=> Shop::
+            'charActive' => DB::table('shops')
+                ->select(DB::raw("date_format(shops.created_at, '%Y-%m-%d') as date, sum(1)"))
+//                ->where('status', '<>', 1)
+                ->groupBy(DB::raw("date_format(shops.created_at, '%Y-%m-%d')"))
+                ->get(),
         ]);
     }
 

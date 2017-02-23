@@ -22,6 +22,7 @@ class ShopsController extends Controller
     {
         return view('shops.index', [
             'active' => Shop::whereStatus('active')->count(),
+//            'charActive'=> Shop::
         ]);
     }
 

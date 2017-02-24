@@ -21,13 +21,13 @@ class ShopsController extends Controller
      */
     public function index()
     {
+        $chartActive = DB::table('shops')
+            ->select(DB::raw("date_format(shops.created_at, '%Y-%m-%d') as date, sum(1) as count"))
+            ->where('status', 'active')
+            ->groupBy(DB::raw("date_format(shops.created_at, '%Y-%m-%d')"))->orderBy('date', 'asc')->get();
         return view('shops.index', [
             'active' => Shop::whereStatus('active')->count(),
-            'charActive' => DB::table('shops')
-                ->select(DB::raw("date_format(shops.created_at, '%Y-%m-%d') as date, sum(1)"))
-//                ->where('status', '<>', 1)
-                ->groupBy(DB::raw("date_format(shops.created_at, '%Y-%m-%d')"))
-                ->get(),
+            'chartActive' => $chartActive->implode('count', ','),
         ]);
     }
 

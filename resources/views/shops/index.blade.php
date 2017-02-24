@@ -114,7 +114,7 @@
     <script type="text/javascript" src="{!! asset('js/plugins/sparkline/sparkline-script.js') !!}"></script>
     <script>
         $(document).ready(function () {
-            $("#clients-bar").sparkline([0, 0, 0, 0], {
+            $("#clients-bar").sparkline([{{ $chartActive }}], {
                 type: 'bar',
                 height: '25',
                 barWidth: 7,

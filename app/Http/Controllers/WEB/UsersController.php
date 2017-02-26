@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\WEB;
 
 use App\User;
+use DB;
 use Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,7 +14,9 @@ class UsersController extends Controller
 {
     public function index()
     {
-        return view('users.index');
+        return view('users.index', [
+            'active' => User::whereStatus('active')->count(),
+        ]);
     }
 
     public function create()

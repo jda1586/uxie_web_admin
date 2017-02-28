@@ -1,7 +1,9 @@
 @extends('layout._main')
 
 @section('title','Nuevo Comercio')
-
+{{--<link href="{!! asset('js/plugins/dropify/css/dropify.min.css')!!}" type="text/css" rel="stylesheet"--}}
+<link href="{!! asset('css/dropzone.css')!!}" type="text/css" rel="stylesheet"
+      media="screen,projection">
 @section('breadcrumb')
     <div id="breadcrumbs-wrapper">
         <!-- Search for small screen -->
@@ -36,7 +38,7 @@
                 <h4 class="header2">Ingresa los datos del nuevo comercio</h4>
 
                 <div class="row">
-                    <form class="col s12" action="{!! route('shops.store') !!}" method="post" id="newShop">
+                    <form class="col s12 dropzone" action="{!! route('shops.store') !!}" method="post" id="newShop">
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="input-field col s12 m6 l6">
@@ -135,16 +137,26 @@
                                 <label for="" class="">Longitud</label>
                             </div>
                         </div>
-
                         <div class="row">
-                            <div class="input-field col s12">
-                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">
-                                    Crear
-                                    <i class="mdi-content-send right"></i>
-                                </button>
-                            </div>
+                            <input type="file" name="file" multiple="multiple" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
                         </div>
+                        {{--<div class="row section">
+                            <div class="col s12 m4 l3">
+                                <p>Default version</p>
+                            </div>
+                            <div class="col s12 m8 l9">
+                                <input type="file" id="input-file-now" multiple class="dropify"  />
+                            </div>
+                        </div>--}}
                     </form>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+                                Crear
+                                <i class="mdi-content-send right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
 
@@ -156,7 +168,24 @@
 
 @section('_footer')
     @parent
+    <!-- dropify -->
+    {{--<script type="text/javascript" src="{!! asset('js/plugins/dropify/js/dropify.min.js') !!}"></script>--}}
+    <script type="text/javascript" src="{!! asset('js/dropezone.js') !!}"></script>
     <script>
+
+        Dropzone.options.newShop = {
+            paramName: "file", // The name that will be used to transfer the file
+            maxFilesize: 2, // MB
+            accept: function (file, done) {
+                if (file.name == "justinbieber.jpg") {
+                    done("Naha, you don't.");
+                }
+                else {
+                    done();
+                }
+            }
+        };
+
         var map;
         function initMap() {
             var myLatLng = {lat: 19.426594, lng: -99.1677644};

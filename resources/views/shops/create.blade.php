@@ -1,9 +1,11 @@
 @extends('layout._main')
 
 @section('title','Nuevo Comercio')
-{{--<link href="{!! asset('js/plugins/dropify/css/dropify.min.css')!!}" type="text/css" rel="stylesheet"--}}
-<link href="{!! asset('css/dropzone.css')!!}" type="text/css" rel="stylesheet"
-      media="screen,projection">
+{{--<link href="{!! asset('js/plugins/dropify/css/dropify.min.css')!!}" type="text/css" rel="stylesheet" media="screen,projection">--}}
+<link href="{!! asset('css/dropzone.css')!!}" type="text/css" rel="stylesheet" media="screen,projection">
+{{--<link href="{!! asset('css/fine-uploader-new.css')!!}" type="text/css" rel="stylesheet" media="screen,projection">--}}
+{{-- Fine Uploader Gallery template   ====================================================================== --}}
+
 @section('breadcrumb')
     <div id="breadcrumbs-wrapper">
         <!-- Search for small screen -->
@@ -137,28 +139,22 @@
                                 <label for="" class="">Longitud</label>
                             </div>
                         </div>
-                        <div class="row">
-                            <input type="file" name="file" multiple="multiple" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
-                        </div>
-                        {{--<div class="row section">
-                            <div class="col s12 m4 l3">
-                                <p>Default version</p>
-                            </div>
-                            <div class="col s12 m8 l9">
-                                <input type="file" id="input-file-now" multiple class="dropify"  />
-                            </div>
-                        </div>--}}
-                    </form>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">
-                                Crear
-                                <i class="mdi-content-send right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
+                            <input type="file" name="file" multiple="multiple" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+                            {{--<div id="fine-uploader-gallery"></div>--}}
+
+
+                        {{--<div class="row">--}}
+                            {{--<div class="input-field col s12" style="margin-top: 50px">--}}
+                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action" style="margin-top: 100px">
+                                    Crear
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                            {{--</div>--}}
+                        {{--</div>--}}
+
+                    </form>
+                </div>
 
             </div>
         </div>
@@ -171,20 +167,41 @@
     <!-- dropify -->
     {{--<script type="text/javascript" src="{!! asset('js/plugins/dropify/js/dropify.min.js') !!}"></script>--}}
     <script type="text/javascript" src="{!! asset('js/dropezone.js') !!}"></script>
+    {{--<script type="text/javascript" src="{!! asset('js/jquery.fine-uploader.js') !!}"></script>--}}
+
     <script>
 
-        Dropzone.options.newShop = {
-            paramName: "file", // The name that will be used to transfer the file
-            maxFilesize: 2, // MB
-            accept: function (file, done) {
-                if (file.name == "justinbieber.jpg") {
-                    done("Naha, you don't.");
+        /*$('#fine-uploader-gallery').fineUploader({
+            template: 'qq-template-gallery',
+            request: {
+                endpoint: '/server/uploads'
+            },
+            thumbnails: {
+                placeholders: {
+                    waitingPath: '/source/placeholders/waiting-generic.png',
+                    notAvailablePath: '/source/placeholders/not_available-generic.png'
                 }
-                else {
-                    done();
-                }
+            },
+            validation: {
+                allowedExtensions: ['jpeg', 'jpg', 'png'],
+                itemLimit:4
+//                sizeLimit:2097152
             }
-        };
+        });*/
+        Dropzone.options.newShop = {
+         paramName: "file", // The name that will be used to transfer the file
+         maxFilesize:2, // MB
+         maxFiles:4,
+         acceptedFiles:".png,.jpg",
+         accept: function (file, done) {
+         if (file.name == "justinbieber.jpg") {
+         done("Naha, you don't.");
+         }
+         else {
+         done();
+         }
+         }
+         };
 
         var map;
         function initMap() {

@@ -98,29 +98,33 @@
                     <div class="col s12 m6 l6">
                         <ul id="projects-collection" class="collection">
                             <li class="collection-item avatar">
-                                <i class="mdi-file-folder circle light-blue darken-2"></i>
-                                <span class="collection-header">Projects</span>
-                                <p>Your Favorites</p>
+                                <i class="mdi-action-store circle light-blue darken-2"></i>
+                                <span class="collection-header">Comercios nuevos</span>
+                                <p>Ultimos 10 agregados</p>
                                 <a href="#" class="secondary-content"><i class="mdi-action-grade"></i></a>
                             </li>
-                            <li class="collection-item">
-                                <div class="row">
-                                    <div class="col s6">
-                                        <p class="collections-title">Web App</p>
-                                        <p class="collections-content">AEC Company</p>
-                                    </div>
-                                    <div class="col s3">
-                                        <span class="task-cat cyan">Development</span>
-                                    </div>
-                                    <div class="col s3">
-                                        <div id="project-line-1">
-                                            <canvas width="172" height="30"
-                                                    style="display: inline-block; width: 172px; height: 30px; vertical-align: top;"></canvas>
+
+                            @foreach($shopsActive as $shop)
+                                <li class="collection-item">
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <b>{{ $shop->name }}</b>
+                                            <br>{{ $shop->description }}
+                                        </div>
+                                        <div class="col s3">
+                                            <span class="task-cat cyan">Development</span>
+                                        </div>
+                                        <div class="col s3">
+                                            <div id="project-line-1">
+                                                <canvas width="172" height="30"
+                                                        style="display: inline-block; width: 172px; height: 30px; vertical-align: top;"></canvas>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                            <li class="collection-item">
+                                </li>
+                            @endforeach
+
+                            {{--<li class="collection-item">
                                 <div class="row">
                                     <div class="col s6">
                                         <p class="collections-title">Mobile App for Social</p>
@@ -170,7 +174,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li>--}}
                         </ul>
                     </div>
                     <div class="col s12 m6 l6"></div>

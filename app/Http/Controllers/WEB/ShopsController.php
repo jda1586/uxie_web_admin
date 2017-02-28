@@ -28,6 +28,7 @@ class ShopsController extends Controller
         return view('shops.index', [
             'active' => Shop::whereStatus('active')->count(),
             'chartActive' => $chartActive->implode('count', ','),
+            'shopsActive' => Shop::orderBy('created_at', 'DESC')->limit(10)->get(),
         ]);
     }
 

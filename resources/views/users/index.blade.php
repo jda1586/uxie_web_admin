@@ -22,10 +22,10 @@
             </div>
         </div>
     </div>
-@endsection
+    @endsection
 
-@section('content')
-        <!--start container-->
+    @section('content')
+            <!--start container-->
     <div class="container">
         <div class="section">
             {{--<p class="caption">Info. de todos los comercios y buscador</p>
@@ -181,11 +181,11 @@
 
     </div>
     <!--end container-->
-@endsection
+    @endsection
 
-@section('_footer')
-@parent
-        <!-- chartjs -->
+    @section('_footer')
+    @parent
+            <!-- chartjs -->
     <script type="text/javascript" src="{!! asset('js/plugins/chartjs/chart.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/plugins/chartjs/chart-script.js') !!}"></script>
 

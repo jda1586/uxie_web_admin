@@ -47,4 +47,9 @@ class UsersController extends Controller
             return redirect()->back()->withInput(Input::all())->with('error', 'El usuario no pudo ser creado');
         }
     }
+
+    public function profile()
+    {
+        return view('users.profile');
+    }
 }

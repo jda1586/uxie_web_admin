@@ -1,10 +1,8 @@
 @extends('layout._main')
 
 @section('title','Nuevo Comercio')
-{{--<link href="{!! asset('js/plugins/dropify/css/dropify.min.css')!!}" type="text/css" rel="stylesheet" media="screen,projection">--}}
-<link href="{!! asset('css/dropzone.css')!!}" type="text/css" rel="stylesheet" media="screen,projection">
-{{--<link href="{!! asset('css/fine-uploader-new.css')!!}" type="text/css" rel="stylesheet" media="screen,projection">--}}
-{{-- Fine Uploader Gallery template   ====================================================================== --}}
+<link href="{!! asset('js/plugins/dropify/css/dropify.min.css')!!}" type="text/css" rel="stylesheet"
+      media="screen,projection">
 
 @section('breadcrumb')
     <div id="breadcrumbs-wrapper">
@@ -140,18 +138,21 @@
                             </div>
                         </div>
 
-                            <input type="file" name="file" multiple="multiple" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
-                            {{--<div id="fine-uploader-gallery"></div>--}}
+                        <div class="row">
+                            <div class="input-field col s12" style="text-align: center!important;">
+                                <input type="file" id="input-file-max-fs" multiple class="dropify"
+                                       data-max-file-size="2M"/>
+                            </div>
+                        </div>
 
-
-                        {{--<div class="row">--}}
-                            {{--<div class="input-field col s12" style="margin-top: 50px">--}}
-                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action" style="margin-top: 100px">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">
                                     Crear
                                     <i class="mdi-content-send right"></i>
                                 </button>
-                            {{--</div>--}}
-                        {{--</div>--}}
+                            </div>
+                        </div>
 
                     </form>
                 </div>
@@ -165,43 +166,33 @@
 @section('_footer')
     @parent
     <!-- dropify -->
-    {{--<script type="text/javascript" src="{!! asset('js/plugins/dropify/js/dropify.min.js') !!}"></script>--}}
-    <script type="text/javascript" src="{!! asset('js/dropezone.js') !!}"></script>
-    {{--<script type="text/javascript" src="{!! asset('js/jquery.fine-uploader.js') !!}"></script>--}}
-
+    <script type="text/javascript" src="{!! asset('js/plugins/dropify/js/dropify.min.js') !!}"></script>
     <script>
+        $(document).ready(function () {
+            // Basic
+//            $('.dropify').dropify();
 
-        /*$('#fine-uploader-gallery').fineUploader({
-            template: 'qq-template-gallery',
-            request: {
-                endpoint: '/server/uploads'
-            },
-            thumbnails: {
-                placeholders: {
-                    waitingPath: '/source/placeholders/waiting-generic.png',
-                    notAvailablePath: '/source/placeholders/not_available-generic.png'
+            // Translated
+            $('.dropify').dropify({
+                messages: {
+                    default: 'Click o arrastra y suelta una foto ',
+                    replace: 'Click o arrastra y suelta una foto para cambiarla',
+                    remove: 'quitar foto',
+                    error: 'archivo exede los 2mg'
                 }
-            },
-            validation: {
-                allowedExtensions: ['jpeg', 'jpg', 'png'],
-                itemLimit:4
-//                sizeLimit:2097152
-            }
-        });*/
-        Dropzone.options.newShop = {
-         paramName: "file", // The name that will be used to transfer the file
-         maxFilesize:2, // MB
-         maxFiles:4,
-         acceptedFiles:".png,.jpg",
-         accept: function (file, done) {
-         if (file.name == "justinbieber.jpg") {
-         done("Naha, you don't.");
-         }
-         else {
-         done();
-         }
-         }
-         };
+            });
+
+            // Used events
+            var drEvent = $('.dropify-event').dropify();
+
+            drEvent.on('dropify.beforeClear', function (event, element) {
+                return confirm("Do you really want to delete \"" + element.filename + "\" ?");
+            });
+
+            drEvent.on('dropify.afterClear', function (event, element) {
+                alert('File deleted');
+            });
+        });
 
         var map;
         function initMap() {

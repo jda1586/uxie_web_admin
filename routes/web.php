@@ -17,6 +17,10 @@ Route::group(['namespace' => 'WEB'], function () {
         Route::any('/logout', 'AuthController@logout')->name('logout');
 
         Route::get('/', 'DashboardController@index')->name('home');
+        Route::get('/agenda', function()
+        {
+            return view('dashboard.agenda');
+        });
 
         Route::group(['prefix' => 'shops', 'as' => 'shops.'], function () {
             Route::get('/', 'ShopsController@index')->name('index');

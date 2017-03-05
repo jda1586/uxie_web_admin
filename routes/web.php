@@ -17,15 +17,15 @@ Route::group(['namespace' => 'WEB'], function () {
         Route::any('/logout', 'AuthController@logout')->name('logout');
 
         Route::get('/', 'DashboardController@index')->name('home');
-        Route::get('/agenda', function()
-        {
-            return view('dashboard.agenda');
-        });
 
         Route::group(['prefix' => 'shops', 'as' => 'shops.'], function () {
             Route::get('/', 'ShopsController@index')->name('index');
             Route::get('/create/{email?}', 'ShopsController@create')->name('create');
             Route::post('/store', 'ShopsController@store')->name('store');
+        });
+
+        Route::group(['prefix' => 'calendar', 'as' => 'calendar.'], function () {
+            Route::get('/', 'CalendarController@index')->name('index');
         });
 
         Route::group(['prefix' => 'users', 'as' => 'users.'], function () {

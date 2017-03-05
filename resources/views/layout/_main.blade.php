@@ -173,15 +173,21 @@
                         </div>
                         <div class="col col s8 m8 l8">
                             <ul id="profile-dropdown" class="dropdown-content">
-                                <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
+                                <li>
+                                    <a href="#">
+                                        <i class="mdi-action-face-unlock"></i> Perfil
+                                    </a>
                                 </li>
-                                <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
+                                <li>
+                                    <a href="#"><i class="mdi-action-settings"></i> Ajustes</a>
                                 </li>
-                                <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
+                                <li>
+                                    <a href="#"><i class="mdi-communication-live-help"></i> Ayuda</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
-                                </li>
+                                {{--<li>
+                                    <a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
+                                </li>--}}
                                 <li>
                                     <a href="{!! route('logout') !!}">
                                         <i class="mdi-hardware-keyboard-tab"></i> Logout
@@ -207,7 +213,7 @@
                 </li>
 
                 <li class="bold">
-                    <a href="#" class="waves-effect waves-cyan">
+                    <a href="{!! route('calendar.index') !!}" class="waves-effect waves-cyan">
                         <i class="mdi-action-schedule"></i> Agenda
                     </a>
                 </li>
@@ -400,8 +406,9 @@
                             </div>
                             <div class="collapsible-body favorite-associates">
                                 <div class="favorite-associate-list chat-out-list row">
-                                    <div class="col s4"><img src="images/avatar.jpg" alt=""
-                                                             class="circle responsive-img online-user valign profile-image">
+                                    <div class="col s4">
+                                        <img src="images/avatar.jpg" alt=""
+                                             class="circle responsive-img online-user valign profile-image">
                                     </div>
                                     <div class="col s8">
                                         <p>Eileen Sideways</p>
@@ -554,9 +561,9 @@ Scripts
                 function (inputValue) {
                     if (inputValue === false) return false;
                     /*if (inputValue === "") {
-                        swal.showInputError("Debe ser un correo valio y registrado en Uxie");
-                        return false
-                    }*/
+                     swal.showInputError("Debe ser un correo valio y registrado en Uxie");
+                     return false
+                     }*/
                     $.post('{!! route('api.users.exists') !!}', {email: inputValue})
                         .done(function (resp) {
                             if (resp.ok) {

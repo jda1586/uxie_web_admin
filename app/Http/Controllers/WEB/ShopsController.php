@@ -69,6 +69,7 @@ class ShopsController extends Controller
             'phone' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
+            'image' => 'required|mimes:jpeg,png|size:2048',
         ]);
         if ($validator->fails())
             return redirect()->route('shops.create')->withErrors($validator);
@@ -83,11 +84,12 @@ class ShopsController extends Controller
             'inside_number' => Input::get('inside_number'),
             'postal_code' => Input::get('postal_code'),
             'phone' => Input::get('phone'),
-            'country_id' => 0, 'state_id' => 0, 'city_id' => 0,  //TODO: implementar el sistemas de entidades
+            'country_id' => 0, 'state_id' => 0, 'city_id' => 0,  //TODO: implementar ciudades
             'latitude' => Input::get('latitude'),
             'longitude' => Input::get('longitude'),
             'status' => 'active'
         ]);
+        //TODO: agregar rutina pera cargar imagen
         if ($shop) {
             return redirect()->route('shops.index');
         } else {

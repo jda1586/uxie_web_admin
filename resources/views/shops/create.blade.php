@@ -1,8 +1,12 @@
 @extends('layout._main')
 
 @section('title','Nuevo Comercio')
-<link href="{!! asset('js/plugins/dropify/css/dropify.min.css')!!}" type="text/css" rel="stylesheet"
-      media="screen,projection">
+
+@section('_header')
+    @parent
+    <link href="{!! asset('js/plugins/dropify/css/dropify.min.css')!!}" type="text/css" rel="stylesheet"
+          media="screen,projection">
+@endsection
 
 @section('breadcrumb')
     <div id="breadcrumbs-wrapper">
@@ -139,9 +143,9 @@
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s12" style="text-align: center!important;">
-                                <input type="file" id="input-file-max-fs" multiple class="dropify"
-                                       data-max-file-size="2M"/>
+                            <div class="input-field col s12" style="text-align: center !important;">
+                                <input type="file" id="input-file-max-fs" class="dropify"
+                                       data-max-file-size="2M" name="image"/>
                             </div>
                         </div>
 

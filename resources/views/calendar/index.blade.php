@@ -37,6 +37,22 @@
         <div class="section">
             {{--<p class="caption">Info. de todos los comercios y buscador</p>
             <div class="divider"></div>--}}
+            <div class="col s12 m3 l3 " style="display: inline-flex">
+                {{--<p><a class="btn btn-large waves-effect waves-light red darken-4">button</a></p>
+                <p><a class="btn btn-large waves-effect waves-light light-green darken-4">button</a></p>--}}
+                {{--<p style="margin: 5px"><a class="waves-effect waves-light btn modal-trigger  teal " href="#modal3">Agregar cita</a></p>--}}
+                <p style="margin: 5px"><a class="btn btn-large waves-effect waves-light lime darken-4"  >agregar cita</a></p>
+                {{--<p style="margin: 5px"><a class="btn btn-large waves-effect waves-light lime darken-4">button</a></p>--}}
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a href="#!" class="-text">one<span class="badge">1</span></a>
+                    </li>
+                    <li><a href="#!" class="-text">two<span class="new badge ">2</span></a>
+                    </li>
+                    <li><a href="#!" class="-text">three</a>
+                    </li>
+                </ul>
+                <a class="btn dropdown-button waves-effect waves-light " href="#!" data-activates="dropdown1">seleccionar empresa<i class="mdi-navigation-arrow-drop-down right"></i></a>
+            </div>
             <div id="full-calendar">
                 <div class="row">
                     <div class="col s12 m8 l9">
@@ -44,6 +60,19 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div id="modal3" class="modal">
+        <div class="modal-content teal white-text">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        </div>
+        <div class="modal-footer  teal lighten-4">
+            <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Disagree</a>
+            <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
         </div>
     </div>
 
@@ -57,6 +86,22 @@
     <script type="text/javascript" src="{!! asset('js/plugins/fullcalendar/new/locale-all.js') !!}"></script>
     <script>
         $(document).ready(function () {
+            // Materialize Parallax
+            $('.parallax').parallax();
+            // Materialize Modal
+            $('.modal-trigger').leanModal({
+                dismissible: true, // Modal can be dismissed by clicking outside of the modal
+                opacity: .5, // Opacity of modal background
+                in_duration: 300, // Transition in duration
+                out_duration: 200, // Transition out duration
+                ready: function() {
+                    //alert('Ready');
+                }, // Callback for Modal open
+                complete: function() {
+                    //alert('Closed');
+                } // Callback for Modal close
+            });
+
             var initialLocaleCode = 'es';
 
             $('#calendar').fullCalendar({

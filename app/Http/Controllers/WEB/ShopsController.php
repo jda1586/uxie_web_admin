@@ -69,7 +69,7 @@ class ShopsController extends Controller
             'phone' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
-            'image' => 'required|mimes:jpeg,png|size:2048',
+            //'image' => 'required|mimes:jpeg,png|size:2048',
         ]);
         if ($validator->fails())
             return redirect()->route('shops.create')->withErrors($validator);

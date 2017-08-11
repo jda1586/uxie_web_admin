@@ -26,8 +26,8 @@ class AuthController extends Controller
 
         if (auth()->attempt(['email' => Input::get('email'), 'password' => Input::get('password')], Input::get('remember'))) {
             return redirect()->route('home');
-        }else{
-            echo "Hola mundo";
+        } else {
+            return redirect()->route('auth.index')->with(['error' => 'Correo y/o contraseña incorrectos']);
         }
     }
 

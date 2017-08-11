@@ -26,6 +26,8 @@ class AuthController extends Controller
 
         if (auth()->attempt(['email' => Input::get('email'), 'password' => Input::get('password')], Input::get('remember'))) {
             return redirect()->route('home');
+        }else{
+            echo "Hola mundo";
         }
     }
 

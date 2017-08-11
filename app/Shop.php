@@ -51,7 +51,7 @@ use Illuminate\Database\Eloquent\Model;
 class Shop extends Model
 {
     protected $fillable = [
-        'user_id', 'owner_id', 'name', 'category_id', 'street', 'outside_number', 'inside_number',
+        'user_id', 'owner_id', 'name', 'category_id', 'street', 'outside_number', 'inside_number', 'description',
         'postal_code', 'phone', 'country_id', 'state_id', 'city_id', 'latitude', 'longitude', 'status'
     ];
 

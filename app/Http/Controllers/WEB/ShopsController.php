@@ -78,7 +78,7 @@ class ShopsController extends Controller
             'user_id' => auth()->user()->id,
             'owner_id' => User::whereEmail(Input::get('owner'))->first()->id,
             'name' => Input::get('name'),
-            'description' => '',
+            'description' => Input::get('name'),
             'category_id' => Input::get('category'),
             'street' => Input::get('street'),
             'outside_number' => Input::get('outside_number'),

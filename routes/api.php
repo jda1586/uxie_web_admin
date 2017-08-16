@@ -13,9 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['namespace' => 'API'], function () {
+Route::group(['namespace' => 'API', 'as' => 'api.'], function () {
+    // API v1
+    Route::group(['namespace' => 'v1'], function () {
+        //SHOPS
+        Route::group(['prefix' => 'shops', 'as' => 'shops.'], function () {
+            Route::post('/','ShopsController@index')->name('index');
+        });
+    });
     // Users
-    Route::group(['prefix' => 'users', 'as' => 'api.users.'], function () {
+    Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
         Route::post('/exists', 'UsersController@exists')->name('exists');
     });
 });
